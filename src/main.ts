@@ -36,6 +36,26 @@ window.addEventListener('DOMContentLoaded', async function () {
     background: dormitorio!,
   })
 
+  let CenaE2: Dialog = new ScriptBuilder(1,
+    new HeaderDialog({
+    text: "Vou ter que mentir sobre a festa...",
+    speakers: [
+      actorBuilder.setName("PensamentoLunado").build()
+    ],
+    listenners: [
+      actorBuilder.setName("Bru").setPosition({ x: 300 }).build(),
+    ],
+    background: corredorDormitorios!
+  })).addDialog(new Battle({
+    title: "Acerte no intervalo amarelo para ter sucesso na mentira.",
+    speakers: [
+      actorBuilder.setName("Bru").setPosition({ x: 300 }).build(),
+    ],   
+    background: corredorDormitorios!,
+    critical: 2,
+    chances: 2
+  })).build().header;
+
   let CenaD1: Dialog = new ScriptBuilder(1,
     new HeaderDialog({
     text: "Hm… Tudo bem, eu espero.",
@@ -261,6 +281,33 @@ let CenaD2: Dialog = new ScriptBuilder(1,
     background: corredorDormitorios!
   }))
   .addDialog(new DefaultDialog({
+    text: "Você vai fazer algo essa noite? Tô precisando de ajuda pra uma trabalho.",
+    speakers: [
+    actorBuilder.setName("Bru").setPosition({ x: 300 }).build()
+    ],
+    background: corredorDormitorios!
+  }))
+  .addDialog(new Survey({
+    options: [
+      {
+        title: "Falar a verdade sobre a festa.",
+        course: CenaE2
+      },
+      {
+        title: "Tentar mentir sobre a festa",
+        course: CenaE2
+      },
+    ],
+    speakers: [
+      actorBuilder.setName("PensamentoLunado").build()
+    ],
+    listenners: [
+      actorBuilder.setName("Bru").setPosition({ x: 300 }).build(),
+    ],
+    background: corredorDormitorios!
+  })).build().header;
+  
+/*   .addDialog(new DefaultDialog({
     text: "(Lunado entra no seu quarto pensativo fechando a porta.)",
     speakers: [
     actorBuilder.setName("Narrador").build()
@@ -306,7 +353,7 @@ let CenaD2: Dialog = new ScriptBuilder(1,
     actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
     ],
     background: dormitorio!
-  })).build().header;
+  })).build().header; */
 
 
 

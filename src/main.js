@@ -38,6 +38,24 @@ window.addEventListener('DOMContentLoaded', function () {
             ],
             background: dormitorio,
         });
+        let CenaE2 = new ScriptBuilder(1, new HeaderDialog({
+            text: "Vou ter que mentir sobre a festa...",
+            speakers: [
+                actorBuilder.setName("PensamentoLunado").build()
+            ],
+            listenners: [
+                actorBuilder.setName("Bru").setPosition({ x: 300 }).build(),
+            ],
+            background: corredorDormitorios
+        })).addDialog(new Battle({
+            title: "Acerte no intervalo amarelo para ter sucesso na mentira.",
+            speakers: [
+                actorBuilder.setName("Bru").setPosition({ x: 300 }).build(),
+            ],
+            background: corredorDormitorios,
+            critical: 2,
+            chances: 2
+        })).build().header;
         let CenaD1 = new ScriptBuilder(1, new HeaderDialog({
             text: "Hm… Tudo bem, eu espero.",
             speakers: [
@@ -258,52 +276,78 @@ window.addEventListener('DOMContentLoaded', function () {
             background: corredorDormitorios
         }))
             .addDialog(new DefaultDialog({
+            text: "Você vai fazer algo essa noite? Tô precisando de ajuda pra uma trabalho.",
+            speakers: [
+                actorBuilder.setName("Bru").setPosition({ x: 300 }).build()
+            ],
+            background: corredorDormitorios
+        }))
+            .addDialog(new Survey({
+            options: [
+                {
+                    title: "Falar a verdade sobre a festa.",
+                    course: CenaE2
+                },
+                {
+                    title: "Tentar mentir sobre a festa",
+                    course: CenaE2
+                },
+            ],
+            speakers: [
+                actorBuilder.setName("PensamentoLunado").build()
+            ],
+            listenners: [
+                actorBuilder.setName("Bru").setPosition({ x: 300 }).build(),
+            ],
+            background: corredorDormitorios
+        })).build().header;
+        /*   .addDialog(new DefaultDialog({
             text: "(Lunado entra no seu quarto pensativo fechando a porta.)",
             speakers: [
-                actorBuilder.setName("Narrador").build()
+            actorBuilder.setName("Narrador").build()
             ],
             listenners: [
-                actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
+            actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
             ],
-            background: dormitorio
-        }))
-            .addDialog(new DefaultDialog({
+            background: dormitorio!
+          }))
+          .addDialog(new DefaultDialog({
             text: "Quando você fez aqueles cartazes da festa?",
             speakers: [
-                actorBuilder.setName("Lunado").build()
+            actorBuilder.setName("Lunado").build()
             ],
             listenners: [
-                actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
+            actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
             ],
-            background: dormitorio
-        }))
-            .addDialog(new DefaultDialog({
+            background: dormitorio!
+          }))
+          .addDialog(new DefaultDialog({
             text: "Você esqueceu que eu não durmo quando tô animado pra algo?",
             speakers: [
-                actorBuilder.setName("Plexu").setPosition({ x: 500 }).build()
+            actorBuilder.setName("Plexu").setPosition({ x: 500 }).build()
             ],
-            background: dormitorio
-        }))
-            .addDialog(new DefaultDialog({
+            background: dormitorio!
+          }))
+          .addDialog(new DefaultDialog({
             text: "É verdade, me lembro do Plexu atleta que ficou uma semana sem dormir animado com uma maratona.",
             speakers: [
-                actorBuilder.setName("PensamentoLunado").build()
+            actorBuilder.setName("PensamentoLunado").build()
             ],
             listenners: [
-                actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
+            actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
             ],
-            background: dormitorio
-        }))
-            .addDialog(new DefaultDialog({
+            background: dormitorio!
+          }))
+          .addDialog(new DefaultDialog({
             text: "Foi insano.",
             speakers: [
-                actorBuilder.setName("PensamentoLunado").build()
+            actorBuilder.setName("PensamentoLunado").build()
             ],
             listenners: [
-                actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
+            actorBuilder.setName("Plexu").setPosition({ x: 500 }).build(),
             ],
-            background: dormitorio
-        })).build().header;
+            background: dormitorio!
+          })).build().header; */
         let CenaC = new ScriptBuilder(1, new HeaderDialog({
             text: "Tá comendo cocô? Claro que não!",
             speakers: [
